@@ -4,5 +4,32 @@
     "subheadline": "Heist, reputazione, economia — gestiti dal nostro team, tracciati in tempo reale.",
     "cta": "Scopri i servizi",
     "trustStat": "{{count}}+ ordini completati"
+  },
+  "servicesCatalog": {
+    "title": "Servizi"
+  },
+  "serviceDetail": {
+    "title": "Dettaglio servizio"
+  },
+  "checkout": {
+    "title": "Checkout"
+  },
+  "orderTracking": {
+    "title": "Stato ordine"
+  },
+  "login": {
+    "title": "Accedi",
+    "continue": "Continua"
+  },
+  "signup": {
+    "title": "Registrati",
+    "continue": "Continua"
+  },
+  "verifyCode": {
+    "title": "Inserisci il codice di conferma",
+    "continue": "Conferma"
+  },
+  "profile": {
+    "title": "Profilo"
   }
 }

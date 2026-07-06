@@ -4,5 +4,32 @@
     "subheadline": "Heists, reputation, economy — done by our team, tracked live.",
     "cta": "Browse services",
     "trustStat": "{{count}}+ orders completed"
+  },
+  "servicesCatalog": {
+    "title": "Services"
+  },
+  "serviceDetail": {
+    "title": "Service detail"
+  },
+  "checkout": {
+    "title": "Checkout"
+  },
+  "orderTracking": {
+    "title": "Order status"
+  },
+  "login": {
+    "title": "Log in",
+    "continue": "Continue"
+  },
+  "signup": {
+    "title": "Sign up",
+    "continue": "Continue"
+  },
+  "verifyCode": {
+    "title": "Enter confirmation code",
+    "continue": "Confirm"
+  },
+  "profile": {
+    "title": "Profile"
   }
 }

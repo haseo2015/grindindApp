@@ -1,5 +1,9 @@
+import { useRouter } from 'expo-router';
+
 import { Home } from '@/components/Home';
 
 export default function HomeScreen() {
-  return <Home onBrowseServices={() => {}} />;
+  const router = useRouter();
+
+  return <Home onBrowseServices={() => router.push('/services')} />;
 }

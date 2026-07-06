@@ -46,6 +46,9 @@ ComponentName/
 - **Tema MUI**: non definire colori/spaziature ad-hoc nel componente. Usa il tema custom centralizzato (file tema separato, es. `theme/index.ts`) via `useTheme()` o gli style props di MUI (`sx`, `theme.palette...`).
 - **i18n**: tutto il testo visibile passa dal sistema di traduzione del progetto (nessuna stringa in lingua fissa nel componente).
 - Logica riusabile (calcoli, formattazioni, validazioni) va estratta in `@grindingapp/utils`, non duplicata nel componente, ed è testata a parte.
+- **Mai duplicare codice**: se una logica o uno stile si ripete in due o più punti, va estratto (componente condiviso, hook, util) e riusato — non copiato.
+- **Tipi sempre in `types/`**: tutte le interfacce/type vanno in una cartella `types/` (a livello di app o di package condiviso `@grindingapp/types`), suddivisa per dominio/argomento (es. `types/order.ts`, `types/user.ts`, `types/service.ts`), non definite ad-hoc dentro i componenti (eccetto le Props del componente stesso, che restano locali).
+- **Stato: preferire XState alle machine implicite di React**: evitare `useState`/`useEffect` dove la logica ha stati/transizioni riconoscibili (form multi-step, chiamate di rete, flussi come login/checkout/tracking ordine). Usare una state machine XState per modellare stati e transizioni esplicitamente. `useState` resta accettabile solo per stato UI banale e locale (es. valore di un input non controllato da una macchina); `useEffect` va evitato quando l'alternativa è un side-effect gestito dalla state machine (invocazioni, servizi XState).
 
 ## Test
 
@@ -61,4 +64,7 @@ ComponentName/
 - [ ] Nessuna stringa hardcodata (costanti + i18n)
 - [ ] Usa il tema MUI custom, non valori ad-hoc
 - [ ] Utils riusabili estratte e testate
+- [ ] Nessun codice duplicato: logica/stile ripetuti sono estratti e riusati
+- [ ] Tipi in `types/` (per dominio), non sparsi nei componenti
+- [ ] Stati/transizioni complessi modellati con XState, non `useState`/`useEffect` a catena
 - [ ] Test unitari + e2e, coverage ≥ 95%

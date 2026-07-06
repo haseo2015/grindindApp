@@ -1,4 +1,4 @@
-import { Button, H1, Paragraph, styled, YStack } from 'tamagui'
+import { H1, Paragraph, styled, YStack } from 'tamagui'
 
 export const Screen = styled(YStack, {
   flex: 1,
@@ -17,14 +17,9 @@ export const Subheadline = styled(Paragraph, {
   color: '$color11',
 })
 
-export const CtaButton = styled(Button, {
-  bg: '$accent9',
-  color: 'white',
-  size: '$5',
-})
-
 export const TrustStat = styled(Paragraph, {
   text: 'center',
-  color: '$color11',
+  color: '$accent9',
+  fontWeight: '700',
   mt: '$8',
 })
