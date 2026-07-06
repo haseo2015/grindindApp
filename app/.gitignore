@@ -8,8 +8,12 @@ build/
 
 # expo
 .expo/
+.tamagui/
 web-build/
 expo-env.d.ts
+
+# test coverage
+coverage/
 
 # env
 .env

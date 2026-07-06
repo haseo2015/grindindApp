@@ -1,0 +1,1 @@
+export const HOME_ORDERS_COMPLETED = 500
