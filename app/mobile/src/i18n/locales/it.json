@@ -31,5 +31,10 @@
   },
   "profile": {
     "title": "Profilo"
+  },
+  "bottomNavigation": {
+    "home": "Home",
+    "services": "Servizi",
+    "profile": "Profilo"
   }
 }

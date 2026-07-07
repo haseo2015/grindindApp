@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 
-import { Signup } from '@/components/Signup';
+import { Signup } from '@/views/Signup';
 
 export default function SignupScreen() {
   const router = useRouter();

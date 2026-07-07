@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "~57.0.3",
+    "@expo/vector-icons": "^15.1.1",
     "@tamagui/babel-plugin": "^2.4.1",
     "@tamagui/config": "^2.4.1",
     "@tamagui/metro-plugin": "^2.4.1",
@@ -38,6 +39,8 @@
     "@testing-library/react-native": "^14.0.1",
     "@types/jest": "^30.0.0",
     "@types/react": "~19.2.2",
+    "eslint": "^9.39.4",
+    "eslint-config-expo": "~57.0.0",
     "jest": "^29.7.0",
     "jest-expo": "^57.0.1",
     "react-test-renderer": "^19.2.7",
@@ -60,6 +63,7 @@
       "node_modules/(?!.*(?:(jest-)?react-native|@react-native[^/]*|expo[^/]*|@expo[^/]*|react-navigation|@react-navigation[^/]*|tamagui|@tamagui[^/]*)/)"
     ],
     "moduleNameMapper": {
+      "^@/assets/(.*)$": "<rootDir>/assets/$1",
       "^@/(.*)$": "<rootDir>/src/$1"
     },
     "setupFiles": [
@@ -72,7 +76,11 @@
       "!src/components/**/*.test.{ts,tsx}",
       "!src/components/*.{ts,tsx}",
       "!src/components/*.web.{ts,tsx}",
-      "!src/components/ui/**"
+      "!src/components/ui/**",
+      "src/views/**/*.{ts,tsx}",
+      "!src/views/**/style.ts",
+      "!src/views/**/index.ts",
+      "!src/views/**/*.test.{ts,tsx}"
     ],
     "coverageThreshold": {
       "global": {

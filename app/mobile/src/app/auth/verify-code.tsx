@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 
-import { VerifyCode } from '@/components/VerifyCode';
+import { VerifyCode } from '@/views/VerifyCode';
 
 export default function VerifyCodeScreen() {
   const router = useRouter();
