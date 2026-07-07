@@ -4,6 +4,8 @@ import { render } from '@testing-library/react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { TamaguiProvider } from 'tamagui'
 
+import { CartProvider } from '@/state/cart'
+
 import tamaguiConfig from '../../tamagui.config'
 
 const TEST_SAFE_AREA_FRAME = { x: 0, y: 0, width: 390, height: 844 }
@@ -13,7 +15,7 @@ export async function renderWithProviders(ui: ReactElement) {
   return render(
     <SafeAreaProvider initialMetrics={{ frame: TEST_SAFE_AREA_FRAME, insets: TEST_SAFE_AREA_INSETS }}>
       <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-        {ui}
+        <CartProvider>{ui}</CartProvider>
       </TamaguiProvider>
     </SafeAreaProvider>,
   )
