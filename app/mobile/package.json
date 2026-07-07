@@ -81,7 +81,11 @@
       "src/views/**/*.{ts,tsx}",
       "!src/views/**/style.ts",
       "!src/views/**/index.ts",
-      "!src/views/**/*.test.{ts,tsx}"
+      "!src/views/**/*.test.{ts,tsx}",
+      "src/utils/**/*.{ts,tsx}",
+      "!src/utils/**/*.test.{ts,tsx}",
+      "src/mocks/**/*.{ts,tsx}",
+      "!src/mocks/**/*.test.{ts,tsx}"
     ],
     "coverageThreshold": {
       "global": {
