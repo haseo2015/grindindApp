@@ -5,9 +5,11 @@
   "dependencies": {
     "@expo/ui": "~57.0.3",
     "@expo/vector-icons": "^15.1.1",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "@tamagui/babel-plugin": "^2.4.1",
     "@tamagui/config": "^2.4.1",
     "@tamagui/metro-plugin": "^2.4.1",
+    "@xstate/react": "^6.1.0",
     "expo": "~57.0.2",
     "expo-constants": "~57.0.3",
     "expo-device": "~57.0.0",
@@ -33,7 +35,8 @@
     "react-native-screens": "4.25.2",
     "react-native-web": "~0.21.0",
     "react-native-worklets": "0.10.0",
-    "tamagui": "^2.4.1"
+    "tamagui": "^2.4.1",
+    "xstate": "^5.32.4"
   },
   "devDependencies": {
     "@testing-library/react-native": "^14.0.1",
@@ -65,7 +68,8 @@
     ],
     "moduleNameMapper": {
       "^@/assets/(.*)$": "<rootDir>/assets/$1",
-      "^@/(.*)$": "<rootDir>/src/$1"
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "^@react-native-async-storage/async-storage$": "@react-native-async-storage/async-storage/jest/async-storage-mock"
     },
     "setupFiles": [
       "<rootDir>/jest.setup.ts"
@@ -85,7 +89,10 @@
       "src/utils/**/*.{ts,tsx}",
       "!src/utils/**/*.test.{ts,tsx}",
       "src/mocks/**/*.{ts,tsx}",
-      "!src/mocks/**/*.test.{ts,tsx}"
+      "!src/mocks/**/*.test.{ts,tsx}",
+      "src/state/**/*.{ts,tsx}",
+      "!src/state/**/index.ts",
+      "!src/state/**/*.test.{ts,tsx}"
     ],
     "coverageThreshold": {
       "global": {

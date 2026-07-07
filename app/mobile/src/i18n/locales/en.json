@@ -29,13 +29,37 @@
       "platform": "Platform",
       "price": "Price"
     },
-    "cta": "Order now"
+    "buyNow": "Buy now",
+    "addToCart": "Add to cart",
+    "inCart": "In cart ({{count}})"
   },
   "checkout": {
-    "title": "Checkout"
+    "title": "Checkout",
+    "total": "Total",
+    "placeOrder": "Place order",
+    "empty": "There's nothing to check out yet."
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty.",
+    "total": "Total",
+    "checkout": "Go to checkout"
   },
   "orderTracking": {
-    "title": "Order status"
+    "title": "Order status",
+    "notFound": "This order could not be found.",
+    "steps": {
+      "received": "Received",
+      "inProgress": "In progress",
+      "completed": "Completed"
+    },
+    "progress": "Progress",
+    "summary": "Order summary",
+    "total": "Total",
+    "details": "Details",
+    "orderId": "Order ID",
+    "placedAt": "Placed on",
+    "operator": "Your operator"
   },
   "login": {
     "title": "Log in",
@@ -55,6 +79,7 @@
   "bottomNavigation": {
     "home": "Home",
     "services": "Services",
+    "cart": "Cart",
     "profile": "Profile"
   }
 }

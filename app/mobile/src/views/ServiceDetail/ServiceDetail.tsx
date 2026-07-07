@@ -7,14 +7,19 @@ import { useTheme } from 'tamagui'
 import { Badge } from '@/components/Badge'
 import { PrimaryButton } from '@/components/PrimaryButton'
 import { Screen, SubText } from '@/components/Screen'
+import { SecondaryButton } from '@/components/SecondaryButton'
 import { getServiceById } from '@/mocks/services'
+import { useCart } from '@/state/cart'
 import { getStarIcons } from '@/utils/starRating'
 
 import {
+  ActionsRow,
   Description,
+  DescriptionBlock,
   Hero,
   InfoLabel,
   InfoRow,
+  InfoSection,
   InfoValue,
   MoreLink,
   SectionTitle,
@@ -29,12 +34,13 @@ import {
 
 export interface ServiceDetailProps {
   serviceId: string
-  onOrder: (serviceId: string) => void
+  onBuyNow: (serviceId: string) => void
 }
 
-export const ServiceDetail: FC<ServiceDetailProps> = ({ serviceId, onOrder }) => {
+export const ServiceDetail: FC<ServiceDetailProps> = ({ serviceId, onBuyNow }) => {
   const { t } = useTranslation()
   const theme = useTheme()
+  const cart = useCart()
   const [expanded, setExpanded] = useState(false)
   const service = getServiceById(serviceId)
 
@@ -45,6 +51,8 @@ export const ServiceDetail: FC<ServiceDetailProps> = ({ serviceId, onOrder }) =>
       </Screen>
     )
   }
+
+  const cartItem = cart.items.find((item) => item.serviceId === service.id)
 
   return (
     <Screen testID="service-detail-screen" title={service.title}>
@@ -70,24 +78,40 @@ export const ServiceDetail: FC<ServiceDetailProps> = ({ serviceId, onOrder }) =>
           <StatValue>{service.duration}</StatValue>
         </Stat>
       </StatsRow>
-      <Description numberOfLines={expanded ? undefined : 3}>{service.description}</Description>
-      <MoreLink testID="service-detail-toggle-description" onPress={() => setExpanded((current) => !current)}>
-        {expanded ? t('serviceDetail.less') : t('serviceDetail.more')}
-      </MoreLink>
-      <SectionTitle>{t('serviceDetail.information')}</SectionTitle>
-      <InfoRow>
-        <InfoLabel>{t('serviceDetail.info.category')}</InfoLabel>
-        <InfoValue>{service.category}</InfoValue>
-      </InfoRow>
-      <InfoRow>
-        <InfoLabel>{t('serviceDetail.info.platform')}</InfoLabel>
-        <InfoValue>{service.platform}</InfoValue>
-      </InfoRow>
-      <InfoRow>
-        <InfoLabel>{t('serviceDetail.info.price')}</InfoLabel>
-        <InfoValue>{`€${service.price.toFixed(2)}`}</InfoValue>
-      </InfoRow>
-      <PrimaryButton onPress={() => onOrder(service.id)}>{t('serviceDetail.cta')}</PrimaryButton>
+      <DescriptionBlock>
+        <Description numberOfLines={expanded ? undefined : 3}>{service.description}</Description>
+        <MoreLink testID="service-detail-toggle-description" onPress={() => setExpanded((current) => !current)}>
+          {expanded ? t('serviceDetail.less') : t('serviceDetail.more')}
+        </MoreLink>
+      </DescriptionBlock>
+      <InfoSection>
+        <SectionTitle>{t('serviceDetail.information')}</SectionTitle>
+        <InfoRow>
+          <InfoLabel>{t('serviceDetail.info.category')}</InfoLabel>
+          <InfoValue>{service.category}</InfoValue>
+        </InfoRow>
+        <InfoRow>
+          <InfoLabel>{t('serviceDetail.info.platform')}</InfoLabel>
+          <InfoValue>{service.platform}</InfoValue>
+        </InfoRow>
+        <InfoRow>
+          <InfoLabel>{t('serviceDetail.info.price')}</InfoLabel>
+          <InfoValue>{`€${service.price.toFixed(2)}`}</InfoValue>
+        </InfoRow>
+      </InfoSection>
+      <ActionsRow>
+        <PrimaryButton flex={1} size="$3" onPress={() => onBuyNow(service.id)}>
+          {t('serviceDetail.buyNow')}
+        </PrimaryButton>
+        <SecondaryButton
+          flex={1}
+          size="$3"
+          testID="service-detail-add-to-cart"
+          onPress={() => cart.addItem(service.id)}
+        >
+          {cartItem ? t('serviceDetail.inCart', { count: cartItem.quantity }) : t('serviceDetail.addToCart')}
+        </SecondaryButton>
+      </ActionsRow>
     </Screen>
   )
 }

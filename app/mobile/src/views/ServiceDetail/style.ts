@@ -22,7 +22,7 @@ export const Title = styled(Text, {
 
 export const StatsRow = styled(XStack, {
   gap: '$6',
-  py: '$3',
+  pb: '$3',
   borderBottomWidth: 1,
   borderBottomColor: '$color4',
 })
@@ -47,6 +47,10 @@ export const StatValue = styled(Text, {
   color: '$color12',
 })
 
+export const DescriptionBlock = styled(YStack, {
+  gap: '$2',
+})
+
 export const Description = styled(Paragraph, {
   color: '$color11',
 })
@@ -54,6 +58,10 @@ export const Description = styled(Paragraph, {
 export const MoreLink = styled(Text, {
   color: '$accent9',
   fontWeight: '700',
+})
+
+export const InfoSection = styled(YStack, {
+  gap: '$2',
 })
 
 export const SectionTitle = styled(Text, {
@@ -76,4 +84,8 @@ export const InfoLabel = styled(Text, {
 export const InfoValue = styled(Text, {
   color: '$color12',
   fontWeight: '600',
+})
+
+export const ActionsRow = styled(XStack, {
+  gap: '$3',
 })

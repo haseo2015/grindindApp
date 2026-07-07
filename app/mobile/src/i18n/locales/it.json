@@ -29,13 +29,37 @@
       "platform": "Piattaforma",
       "price": "Prezzo"
     },
-    "cta": "Ordina ora"
+    "buyNow": "Acquista ora",
+    "addToCart": "Aggiungi al carrello",
+    "inCart": "Nel carrello ({{count}})"
   },
   "checkout": {
-    "title": "Checkout"
+    "title": "Checkout",
+    "total": "Totale",
+    "placeOrder": "Conferma ordine",
+    "empty": "Non c'è ancora nulla da acquistare."
+  },
+  "cart": {
+    "title": "Carrello",
+    "empty": "Il carrello è vuoto.",
+    "total": "Totale",
+    "checkout": "Vai al checkout"
   },
   "orderTracking": {
-    "title": "Stato ordine"
+    "title": "Stato ordine",
+    "notFound": "Ordine non trovato.",
+    "steps": {
+      "received": "Ricevuto",
+      "inProgress": "In corso",
+      "completed": "Completato"
+    },
+    "progress": "Avanzamento",
+    "summary": "Riepilogo ordine",
+    "total": "Totale",
+    "details": "Dettagli",
+    "orderId": "ID ordine",
+    "placedAt": "Effettuato il",
+    "operator": "Il tuo operatore"
   },
   "login": {
     "title": "Accedi",
@@ -55,6 +79,7 @@
   "bottomNavigation": {
     "home": "Home",
     "services": "Servizi",
+    "cart": "Carrello",
     "profile": "Profilo"
   }
 }

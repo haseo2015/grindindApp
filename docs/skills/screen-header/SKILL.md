@@ -1,9 +1,9 @@
 ---
 name: screen-header
-description: Pattern di default per l'header delle schermate mobile (titolo centrato + freccia back a sinistra), valido per tutte le pagine interne escluso la home
+description: Pattern di default per header (titolo centrato + freccia back) e bottom bar delle schermate mobile — entrambi sempre visibili, eccetto la home
 ---
 
-# Header di default per le schermate
+# Header e bottom bar di default per le schermate
 
 Ogni view interna dell'app mobile (`app/mobile`, cartella `src/views/`), **eccetto la homepage**, usa lo stesso header: freccia back a sinistra e titolo centrato. Il pattern è implementato dal componente `Screen` (`src/components/Screen`), che delega il rendering dell'header a `Header` (`src/components/Header`) — entrambi sono componenti riusabili in `components/`, non view.
 
@@ -27,6 +27,25 @@ export const Checkout: FC = () => {
   <Screen testID="profile-screen" title={t('profile.title')} showBack={false} />
   ```
 - **Home** (`src/views/Home`) è l'unica eccezione: non usa `Screen`/`Header`, ha un proprio layout (sfondo full-bleed + `GtaTitle`).
+
+## Bottom bar: sempre visibile come l'header, stessa eccezione
+
+`BottomNavigation` (`src/components/BottomNavigation`) segue la stessa regola dell'header: **sempre visibile su ogni view tranne la home**. Non è montata dentro il layout del gruppo `(tabs)` (che oggi è solo un `<Slot />`, senza layout proprio) — vive nel layout root (`src/app/_layout.tsx`), che la mostra o nasconde in base al pathname corrente:
+
+```tsx
+// src/app/_layout.tsx
+const pathname = usePathname()
+const showBottomNavigation = pathname !== '/'
+
+<YStack flex={1}>
+  <YStack flex={1}>
+    <Stack screenOptions={{ headerShown: false }} />
+  </YStack>
+  {showBottomNavigation ? <BottomNavigation /> : null}
+</YStack>
+```
+
+Questo la rende visibile anche sulle view fuori dal gruppo `(tabs)` (dettaglio servizio, checkout, tracking ordine, ecc.), non solo sulle root delle tab. Se aggiungi una nuova rotta e non vuoi la bottom bar, l'unico modo previsto è essere la homepage (`/`) — non esistono altre eccezioni per ora. Se in futuro serve un'eccezione aggiuntiva (es. schermate di auth a schermo intero), va estesa la condizione `showBottomNavigation` nel layout root, non nascosta a livello di singola view.
 
 ## Regole
 
@@ -55,3 +74,4 @@ export const Checkout: FC = () => {
 - [ ] Il test della view mocka `expo-router` (`useRouter` → `{ back: jest.fn() }`)
 - [ ] Nessuna dipendenza diretta da `expo-router` dentro la view (la navigazione back resta interna a `Header`)
 - [ ] Nessun padding statico per compensare notch/dynamic island/home indicator: usa `useSafeAreaInsets()` su qualsiasi elemento che tocca il bordo dello schermo
+- [ ] Non serve fare nulla per la bottom bar: è già gestita dal layout root e appare automaticamente su ogni view tranne la home
