@@ -6,10 +6,30 @@
     "trustStat": "{{count}}+ orders completed"
   },
   "servicesCatalog": {
-    "title": "Services"
+    "title": "Services",
+    "searchPlaceholder": "Search services",
+    "empty": "No services match your search.",
+    "badge": {
+      "popular": "Popular",
+      "bestValue": "Best value"
+    }
   },
   "serviceDetail": {
-    "title": "Service detail"
+    "title": "Service detail",
+    "notFound": "This service could not be found.",
+    "stats": {
+      "rating": "Rating",
+      "duration": "Duration"
+    },
+    "more": "More",
+    "less": "Less",
+    "information": "Information",
+    "info": {
+      "category": "Category",
+      "platform": "Platform",
+      "price": "Price"
+    },
+    "cta": "Order now"
   },
   "checkout": {
     "title": "Checkout"

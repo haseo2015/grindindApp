@@ -6,10 +6,30 @@
     "trustStat": "{{count}}+ ordini completati"
   },
   "servicesCatalog": {
-    "title": "Servizi"
+    "title": "Servizi",
+    "searchPlaceholder": "Cerca un servizio",
+    "empty": "Nessun servizio corrisponde alla ricerca.",
+    "badge": {
+      "popular": "Popolare",
+      "bestValue": "Miglior prezzo"
+    }
   },
   "serviceDetail": {
-    "title": "Dettaglio servizio"
+    "title": "Dettaglio servizio",
+    "notFound": "Servizio non trovato.",
+    "stats": {
+      "rating": "Valutazione",
+      "duration": "Durata"
+    },
+    "more": "Altro",
+    "less": "Meno",
+    "information": "Informazioni",
+    "info": {
+      "category": "Categoria",
+      "platform": "Piattaforma",
+      "price": "Prezzo"
+    },
+    "cta": "Ordina ora"
   },
   "checkout": {
     "title": "Checkout"
